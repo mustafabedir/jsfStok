@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+/home/mustafa/Masaüstü/ErpProje/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2173131991.index
+3962144557.index
+4254223577.index
+3763643503.index
+2995610797.index
+1868036711.index
+3516720166.index

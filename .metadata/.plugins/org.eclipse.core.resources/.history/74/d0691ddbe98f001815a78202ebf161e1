@@ -1,0 +1,72 @@
+package com.erp.entities;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "stok")
+public class Stok {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer stokID;
+	private String urunAd;
+	private String urunMarka;
+	private Integer urunFiyat;
+	private Integer stokAdet;
+	private String urunTedarik;
+	private String aciklama;
+	private String toplamUcret;
+	
+	
+	public Integer getStokID() {
+		return stokID;
+	}
+	public void setStokID(Integer stokID) {
+		this.stokID = stokID;
+	}
+	public String getUrunAd() {
+		return urunAd;
+	}
+	public void setUrunAd(String urunAd) {
+		this.urunAd = urunAd;
+	}
+	public String getUrunMarka() {
+		return urunMarka;
+	}
+	public void setUrunMarka(String urunMarka) {
+		this.urunMarka = urunMarka;
+	}
+	public long getUrunFiyat() {
+		return urunFiyat;
+	}
+	public void setUrunFiyat(Integer urunFiyat) {
+		this.urunFiyat = urunFiyat;
+	}
+	public Integer getStokAdet() {
+		return stokAdet;
+	}
+	public void setStokAdet(Integer stokAdet) {
+		this.stokAdet = stokAdet;
+	}
+	public String getUrunTedarik() {
+		return urunTedarik;
+	}
+	public void setUrunTedarik(String urunTedarik) {
+		this.urunTedarik = urunTedarik;
+	}
+	public String getAciklama() {
+		return aciklama;
+	}
+	public void setAciklama(String aciklama) {
+		this.aciklama = aciklama;
+	}
+	public String getToplamUcret() {
+		return toplamUcret;
+	}
+	public void setToplamUcret(String toplamUcret) {
+		toplamUcret = urunFiyat*stokAdet;
+		this.toplamUcret = toplamUcret;
+	}
+	
+	
+	
+}

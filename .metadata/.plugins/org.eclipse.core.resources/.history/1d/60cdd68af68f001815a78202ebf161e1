@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Conpatible" content="IE=edge" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+	<title>ERP</title>
+	<style type="text/css">
+#formID {align ="center";
+	margin-top: 10px;
+	margin-right: 250px;
+	margin-left: 250px;
+}
+
+#btnKaydet {
+	margin-left: 790px;
+}
+
+#btnDuzenle {
+	margin-top: -37px;
+	margin-left: 700px;
+}
+
+#btnHesapla {
+	margin-top: -37px;
+	margin-left: 610px;
+}
+#btnAdSirala {
+	margin-top: -37px;
+	margin-left: 520px;
+}
+
+#dataTable {
+	margin-top: 10px;
+	margin-right: 100px;
+	margin-left: 100px;
+}
+
+.progress {
+	margin-top: 10px;
+	margin-right: 150px;
+	margin-left: 150px;
+}
+</style>
+</h:head>
+<body>
+	<f:view>
+		<h:form id="formID">
+			<div class="form-group">
+				<h:outputLabel value="Ürün Adı" />
+				<h:inputText value="#{stokBean.stok.urunAd}" class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Ürün Marka" />
+				<h:inputText value="#{stokBean.stok.urunMarka}" class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Ürün Fiyat" />
+				<h:inputText value="#{stokBean.stok.urunFiyat}" class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Stok Adet" />
+				<h:inputText value="#{stokBean.stok.stokAdet}" class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Tedarik" />
+				<h:inputText value="#{stokBean.stok.urunTedarik}"
+					class="form-control" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Açıklama" />
+				<h:inputText value="#{stokBean.stok.aciklama}" class="form-control" />
+			</div>
+			<div id="btnKaydet">
+				<h:commandButton action="#{stokBean.kaydet()}" value="Kaydet"
+					class="btn btn-success" />
+			</div>
+			<div id="btnDuzenle">
+				<h:commandButton action="#{stokBean.duzenle()}" value="Duzenle"
+					class="btn btn-primary" />
+			</div>
+			<div id="btnAdSirala">
+				<h:commandButton action="#{stokBean.duzenle()}" value="Duzenle"
+					class="btn btn-primary" />
+			</div>
+		</h:form>
+		<h:form>
+			<div id="dataTable">
+				<h:dataTable value="#{stokBean.stokListesi}" var="cls"
+					styleClass="table table-striped">
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputLabel value="#{cls.stokID}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ürün Ad</f:facet>
+						<h:outputLabel value="#{cls.urunAd}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ürün Marka</f:facet>
+						<h:outputLabel value="#{cls.urunMarka}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ürün Fiyat</f:facet>
+						<h:outputLabel value="#{cls.urunFiyat}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Stok Adet</f:facet>
+						<h:outputLabel value="#{cls.stokAdet}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Tedarikçi</f:facet>
+						<h:outputLabel value="#{cls.urunTedarik}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ürün Açıklama</f:facet>
+						<h:outputLabel value="#{cls.aciklama}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Toplam Fiyat</f:facet>
+						<h:outputLabel value="#{cls.toplamUcret}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Sil</f:facet>
+						<h:commandLink action="#{stokBean.sil()}" value="Sil"
+							class="btn btn-danger">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{stokBean.stok}"></f:setPropertyActionListener>
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Seç</f:facet>
+						<h:commandButton value="Seç" class="btn btn-primary">
+							<f:setPropertyActionListener value="#{cls}"
+								target="#{stokBean.stok}"></f:setPropertyActionListener>
+						</h:commandButton>
+					</h:column>
+				</h:dataTable>
+			</div>
+		</h:form>
+	</f:view>
+</body>
+</html>

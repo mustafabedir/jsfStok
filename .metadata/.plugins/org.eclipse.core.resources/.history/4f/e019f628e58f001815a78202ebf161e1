@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ErpProje">
+        <property name="context-root" value="ErpProje"/>
+    </wb-module>
+</project-modules>
